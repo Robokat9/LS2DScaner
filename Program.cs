@@ -16,8 +16,6 @@ namespace LSD_CLIENT_AQUA
         {
            
             Client client = new Client();
-            
-            ;
             client.SendMessageFromSocket(49153);
         }
         
