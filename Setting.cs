@@ -149,5 +149,7 @@ namespace LSD_CLIENT_AQUA
                 bufSetting[0xDE - i * 2 + 1] = (byte)(_convCoef[i] >> 0);
             }
         }
+
+
     }
 }

@@ -14,14 +14,18 @@ namespace LSD_CLIENT_AQUA
         
         static void Main(string[] args)
         {
-           
-            Client client = new Client();
-            
-            ;
-            client.SendMessageFromSocket(49153);
+            CreateXmlDocument create = new CreateXmlDocument();
+            try
+            {
+                Client client = new Client();
+
+                client.SendMessageFromSocket(30000, 0);
+            }
+            catch (Exception e){
+                Console.WriteLine(e.Message);
+
+            }
+
         }
-        
-
-
     }
 }

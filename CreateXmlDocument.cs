@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace LSD_CLIENT_AQUA
 {
@@ -23,6 +27,23 @@ namespace LSD_CLIENT_AQUA
 
             doc.Save("scan.xml");
             return doc;
+        }
+
+        public XmlDocument GetCoordinatesRobot(string CoordXml)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            try
+            {
+               
+                xmlDoc.LoadXml(CoordXml);
+                return xmlDoc;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                
+            }
+            return xmlDoc; 
         }
         
     }
