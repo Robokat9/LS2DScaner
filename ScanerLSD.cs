@@ -505,9 +505,6 @@ namespace LSD_CLIENT_AQUA
             Console.WriteLine("_points_buf1.Len v1 = " + _points_buf1.Length);
             max_y_v1 = _points_buf1[GetMaxElement(_points_buf1, _points_buf1.Length)].Y;
 
-
-           // DotPoint.X = _points_buf1[GetMinElement(_points_buf1, _points_buf1.Length)].X;
-            //DotPoint.Y = _points_buf1[GetMinElement(_points_buf1, _points_buf1.Length)].Y;
             DotPoint1_v1.X = (float)(DotPoint.X); //min element X,Y
             DotPoint1_v1.Y = (float)DotPoint.Y;
             DotPoint2_v1.X = (float)((max_y_v1 - b_v1) / m_v1);
@@ -569,69 +566,7 @@ namespace LSD_CLIENT_AQUA
             Console.WriteLine("angle v2 = " + angleBtw1);
             Console.WriteLine("angle v1&v2 = " + angleBtw2);
 
-            //_points_v2 = GetDistance(_points_v2[1], _points_v2[5], _points_v2);
-            //getMNK(_points_v1, _points_v1.Length, 1);
-            //getMNK(_points_v2, _points_v2.Length, 2);
-            //if ((_points_v1.Length > 20) || (_points_v2.Length > 20))
-            //{
-            //    if (_points_v1.Length > 10)
-            //    {
-            //        getMNK(_points_v1, _points_v1.Length, 1);
-
-            //    }
-            //    else
-            //    {
-            //        getLines(_points_v1[0], _points_v1[_points_v1.Length - 1], 1);
-            //    }
-
-            //max_y_v1 = _points_v1[GetMaxElement(_points_v1, _points_v1.Length)].Y;
-            //    DotPoint1_v1.X = (float)(DotPoint.X); //min element X,Y
-            //    DotPoint1_v1.Y = (float)DotPoint.Y;
-            //    DotPoint2_v1.X = (float)((max_y_v1 - b_v1) / m_v1);
-            //    DotPoint2_v1.Y = (float)max_y_v1;
-            //    vect_v1.X = DotPoint2_v1.X - DotPoint1_v1.X;
-            //    vect_v1.Y = DotPoint2_v1.Y - DotPoint1_v1.Y;
-            //    angleBtw = Math.Round(AngleBetweenVectors(vect_v1, vect2), 3);
-
-
-            //    if (_points_v2.Length > 10)
-            //    {
-            //        getMNK(_points_v2, _points_v2.Length, 2);
-            //    }
-            //    else
-            //    {
-            //        getLines(_points_v2[0], _points_v2[_points_v2.Length - 1], 2);
-            //    }
-
-            //     max_y_v2 = _points_v2[GetMaxElement(_points_v2, _points_v2.Length)].Y;
-            //    DotPoint1_v2.X = (float)(DotPoint.X); //min element X,Y
-            //    DotPoint1_v2.Y = (float)DotPoint.Y;
-            //    DotPoint2_v2.X = (float)((max_y_v2 - b_v2) / m_v2);
-            //    DotPoint2_v2.Y = (float)max_y_v2;
-            //    vect_v2.X = DotPoint2_v2.X - DotPoint1_v2.X;
-            //    vect_v2.Y = DotPoint2_v2.Y - DotPoint1_v2.Y;
-            //    angleBtw1 = Math.Round(AngleBetweenVectors(vect_v2, vect2), 3);
-
-
-
-
-            //    DotPoint = dotPoi(b_v1, m_v1, b_v2, m_v2);
-
-            //    angleBtw2 = AngleBetweenVectors(vect_v1, vect_v2);
-
-                //_points_v1 = GetDistance(DotPoint1_v1, DotPoint2_v1, _points_v1);
-                //_points_v2 = GetDistance(DotPoint1_v2, DotPoint2_v2, _points_v2);
-               // DrawLinePoints(_points_v1, _points_v2, 2);
-               
-                // DrawLinePoints(_points_buf1, _points_buf2, 1);
-
-        //}
-            //else
-            //{
-
-            //    double c = 2;
-            //}
-
+  
             return angleBtw;
         }
 
@@ -685,7 +620,7 @@ namespace LSD_CLIENT_AQUA
                 if (CheckPoints(point1, point2, points[k]) <= 0.2)
                 {
                     DistanceValues[k] = CheckPoints(point1, point2, points[k]);
-                    if (points[k].IsEmpty==false)
+                    if (points != null && points.Length > 0)// if (points[k].IsEmpty==false)
                     {
                         pointnew[goodValues] = points[k];
                         goodValues++;
@@ -708,7 +643,7 @@ namespace LSD_CLIENT_AQUA
             pointnew1 = new PointF[count];
             for (int i = 0; i < count; i++)
             {
-                if (pointnew[i].IsEmpty == false)
+                if (pointnew != null && pointnew.Length > 0)// if (pointnew[i].IsEmpty == false)
                 {
                     pointnew1[i] = pointnew[i];
                 }
@@ -733,7 +668,7 @@ namespace LSD_CLIENT_AQUA
             double b = 0;
             for (int i = 0; i < len; i++)
             {
-                if (points[i].IsEmpty==false)
+                if (points != null && points.Length > 0)// if (points[i].IsEmpty==false)
                 {
                     X_ = X_ + points[i].X;
                     Y_ = Y_ + points[i].Y;
@@ -746,7 +681,7 @@ namespace LSD_CLIENT_AQUA
 
             for (int i = 0; i < len; i++)
             {
-                if (points[i].IsEmpty==false)
+                if (points != null && points.Length > 0)// if (points[i].IsEmpty==false)
                 {
                     m1 += (points[i].X - X_) * (points[i].Y - Y_);
                 }
